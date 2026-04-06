@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: raw
+    database: STOCK_ANALYTICS
+    schema: RAW
+    tables:
+      - name: STOCK_PRICES
+        description: "Raw daily stock price data ingested from Yahoo Finance via Databricks"
+        columns:
+          - name: DATE
+            description: "Trading date"
+          - name: TICKER
+            description: "Stock ticker symbol"
+          - name: SECTOR
+            description: "Market sector the stock belongs to"
+          - name: OPEN
+            description: "Opening price"
+          - name: HIGH
+            description: "Daily high price"
+          - name: LOW
+            description: "Daily low price"
+          - name: CLOSE
+            description: "Closing price"
+          - name: VOLUME
+            description: "Number of shares traded"
