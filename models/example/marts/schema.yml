@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_stock_prices
+    description: "Core fact table with one row per stock per trading day"
+    columns:
+      - name: price_date
+        description: "Trading date"
+        tests:
+          - not_null
+      - name: ticker_symbol
+        description: "Stock ticker"
+        tests:
+          - not_null
+      - name: close_price
+        description: "Closing price"
+        tests:
+          - not_null
+
+  - name: agg_sector_performance
+    description: "Monthly sector performance aggregation"
+    columns:
+      - name: sector
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Technology', 'Finance', 'Healthcare', 'Energy', 'Consumer']
+                
+  - name: agg_stock_volatility
+    description: "Volatility metrics per stock over the full period"
+    columns:
+      - name: ticker_symbol
+        tests:
+          - not_null
+          - unique
